@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * @email sunlightcs@gmail.com
  * @date 2016年10月27日 下午10:16:19
  */
-@Component
+//@Component
 public class RRExceptionHandler implements HandlerExceptionResolver {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	

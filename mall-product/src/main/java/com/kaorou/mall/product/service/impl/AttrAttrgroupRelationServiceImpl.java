@@ -1,5 +1,7 @@
 package com.kaorou.mall.product.service.impl;
 
+import com.kaorou.mall.product.dao.AttrAttrgroupRelationDao;
+import com.kaorou.mall.product.entity.AttrAttrgroupRelationEntity;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -8,8 +10,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kaorou.common.utils.PageUtils;
 import com.kaorou.common.utils.Query;
 
-import com.kaorou.mall.product.dao.AttrAttrgroupRelationDao;
-import com.kaorou.mall.product.entity.AttrAttrgroupRelationEntity;
 import com.kaorou.mall.product.service.AttrAttrgroupRelationService;
 
 
