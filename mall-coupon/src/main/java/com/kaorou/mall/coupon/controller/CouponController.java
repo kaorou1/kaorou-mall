@@ -5,6 +5,8 @@ import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,11 +27,31 @@ import com.kaorou.common.utils.R;
  * @email whyxx4583@gmail.com
  * @date 2024-03-20 13:39:02
  */
+@RefreshScope
 @RestController
 @RequestMapping("coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @Value("${coupon.user.name}")
+    private String userName;
+    @Value("${coupon.user.age}")
+    private Integer age;
+
+    @RequestMapping("/test")
+    public R test(){
+        CouponEntity coupon = new CouponEntity();
+        coupon.setCouponName(userName);
+        return R.ok().put("coupon", coupon).put("age", age);
+    }
+
+    @RequestMapping("/getKaorou")
+    public R getKaorou(){
+        CouponEntity coupon = new CouponEntity();
+        coupon.setCouponName("烤肉专属优惠券");
+        return R.ok().put("coupon", coupon);
+    }
 
     /**
      * 列表

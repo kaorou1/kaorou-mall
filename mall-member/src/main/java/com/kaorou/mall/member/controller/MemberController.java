@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.kaorou.mall.member.feign.CouponClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,19 @@ import com.kaorou.common.utils.R;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    private CouponClient couponClient;
+
+    @RequestMapping("/getKaorouInfo")
+    public R getKaorouInfo(){
+        MemberEntity member = new MemberEntity();
+        member.setNickname("烤肉6");
+
+        //远程调用coupon查询优惠券
+        R r = couponClient.getKaorou();
+        return R.ok().put("member", member).put("远程结果", r);
+    }
 
     /**
      * 列表
