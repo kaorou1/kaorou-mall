@@ -131,6 +131,13 @@
             <version>9.0.60</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>

@@ -1,6 +1,7 @@
 package com.kaorou.mall.product.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -30,6 +31,17 @@ import com.kaorou.common.utils.R;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+
+    /**
+     * 查询所以得三级分类，以树形结构返回
+     */
+    @RequestMapping("/list/tree")
+    public R getTreeList(){
+        List<CategoryEntity> tree = categoryService.getTreeList();
+
+        return R.ok().put("tree", tree);
+    }
+
 
     /**
      * 列表

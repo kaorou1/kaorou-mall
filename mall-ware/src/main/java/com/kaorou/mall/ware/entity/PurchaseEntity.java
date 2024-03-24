@@ -15,7 +15,7 @@ import lombok.Data;
  * @email whyxx4583@gmail.com
  * @date 2024-03-20 14:07:40
  */
-@Data
+
 @TableName("wms_purchase")
 public class PurchaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
