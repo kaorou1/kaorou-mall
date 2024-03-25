@@ -36,7 +36,6 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         List<CategoryEntity> list = baseMapper.selectList(null);
 
         //2. 组装父子结构
-        //2.1 查找1级分类
         List<CategoryEntity> level1 = list.stream()
                 .filter(categoryEntity -> categoryEntity.getParentCid() == 0)
                 .map(level1Entity -> {
@@ -48,9 +47,12 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
                 })
                 .collect(Collectors.toList());
 
-        //2.2 找到2
-
         return level1;
+    }
+
+    @Override
+    public void removeLogicByIds(List<Long> asList) {
+        baseMapper.deleteBatchIds(asList);
     }
 
 
